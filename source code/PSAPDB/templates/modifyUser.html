@@ -1,0 +1,72 @@
+{%extends "db.html"%}
+
+{%block body%}
+{%include "header.html"%}
+
+<link rel="stylesheet" type="text/css" href="static/css/custom.css">
+
+{%if cItem != 0%}
+<p align="center">Email: {{psapidNum}} "{{cItem}}" has been changed from "{{v1}}" to "{{v2}}"
+</p>
+{%endif%}
+
+
+<p align="center"><b>Welcome to Modify Users, {{email}}</b></p>
+
+{% if pgSource.count > 0%}
+
+<div>
+<a class="alignleft"><b>{{ pgSource.start_index }} to {{ pgSource.end_index }}  out of {{ pgSource.count }}</b></a>
+
+{% if (pgSource.has_next == True) %}
+<a class="alignright" href=modifyUser?page={{pgSource.next_page }} >Next Page ({{ pgSource.next_page }})</a>
+{% endif %}
+{% if (pgSource.has_previous == True) and (pgSource.has_next == True) %}
+ <a class="alignright"> <></a>
+{%endif%}
+{% if (pgSource.has_previous == True) %}
+<a class="alignright" href=modifyUser?page={{pgSource.previous_page }} >Prev Page ({{ pgSource.previous_page }}) </a>
+{% endif %}
+</div>
+<div style="clear: both;"></div>
+
+
+<p align="center"> <h4> PSAP List </h4>
+<table id="tableData">
+  <tr>
+    <td width="15%">Email</td>
+    <td width="35%">Read Access</td>
+    <td width="35%">Write Access</td>
+    <td width="15%">Registered</td>
+  </tr>
+  {% for unit in dataList %}
+  <tr>
+
+    <td>{{unit['email']}}</td>
+    <td onclick="popMod('Read Access?','{{unit['read_access']}}', 'read_access','{{unit['email']}}','{{pgSource.current_page}}')">{{unit['read_access']}}</td>
+    <td onclick="popMod('Write Access?', '{{unit['write_access']}}',  'write_access','{{unit['email']}}','{{pgSource.current_page}}')">{{unit['write_access']}}</td>
+    <td>{{unit['registered']}}</td>
+    
+  </tr>
+  {% endfor %}
+</table>
+</p>
+
+{% endif %}
+ 
+<script type="text/javascript">
+
+function popMod(ques, data, property, id, page)
+{
+  var result = window.prompt(ques, data);
+
+  if ((result != null) & (result != data) & (result != ""))
+  {
+    console.log(result);
+    window.location.href = 'modifymodifyUser?page='+page+'&email='+id+'&'+property+'='+result;
+  }
+  
+}
+</script> 
+
+{%endblock%}

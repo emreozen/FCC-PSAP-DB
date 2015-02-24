@@ -1,0 +1,50 @@
+{%extends "db.html"%}
+{%block body%}
+
+{%include "header.html"%}
+
+<p align="center"><b>Welcome The Search Page {{email}}</b>
+
+{%include "searchbox.html"%}
+
+</p>
+
+{% if searchResult %}
+
+<div style="clear: both;"></div>
+<p></p>
+
+<p align="center"><b>{{number}} results for the search for '{{searchQuery}}' in {{searchCategory}} </b></p>
+
+
+<p align="center"> <h4> PSAP List </h4>
+<table id="tableData">
+  <tr>
+    <td width="5%">PSAP ID</td>
+    <td width="13%">PSAP Name</td>
+    <td width="5%">State</td>
+    <td width="13%">County</td>
+    <td width="13%">City</td>
+    <td width="3%">Type of Change</td>
+    <td width="40%">Comments</td>
+    <td width="10%">text-to-911</td>
+    <td width="10%">PSAP Contact</td>
+  </tr>
+  {% for unit in dataList %}
+  <tr>
+    <td>{{unit['PSAP ID']}}</td>
+    <td>{{unit['PSAP Name']}}</td>
+    <td>{{unit['State']}}</td>
+    <td>{{unit['County']}}</td>
+    <td>{{unit['City']}}</td>
+    <td>{{unit['Type of Change']}}</td>
+    <td>{{unit['Comments']}}</td>
+    <td>{{unit['Text to 911']}}</td>
+    <td>{{unit['PSAP Contact']}}</td>
+  </tr>
+  {% endfor %}
+</table>
+</p>
+{% endif %}
+{%endblock%}
+

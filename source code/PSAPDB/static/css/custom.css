@@ -1,0 +1,80 @@
+table, td, th {
+ 
+    border: 1px;
+    font-size:90%;
+    border: 1px  solid black;
+    table-layout: auto;
+    text-align: center;
+    height: 20px;
+}
+
+#header {
+ 	vertical-align: center;
+    font-size:100%;
+    border: 1px  solid black;
+    table-layout: auto;
+    width: 90%;
+    text-align: center;
+    height: 100%;
+}
+
+.alignleft{
+	float: left;
+}
+
+
+.alignright{
+	float: right;
+}
+
+.aligncenter{
+	float: center;
+}
+
+ .textarea { 
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px; 
+    border: 1px solid #848484; 
+    outline:0; 
+    height:25px; 
+    width: 275px; 
+    font-size: 14px;
+ } 
+
+.loginbutton {
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: normal;
+    text-decoration: inherit;
+    -webkit-border-radius: 8px 8px 8px 8px;
+    -moz-border-radius: 8px 8px 8px 8px;
+    border-radius: 8px 8px 8px 8px;
+    border: 1px solid #337fed;
+    padding: 9px 18px;
+    text-shadow: 1px 1px 0px #1570cd;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #97c4fe;
+    -moz-box-shadow: inset 1px 1px 0px 0px #97c4fe;
+    box-shadow: inset 1px 1px 0px 0px #97c4fe;
+    cursor: pointer;
+    color: #ffffff;
+    display: inline-block;
+    background: -webkit-linear-gradient(90deg, #1e62d0 5%, #3d94f6 100%);
+    background: -moz-linear-gradient(90deg, #1e62d0 5%, #3d94f6 100%);
+    background: -ms-linear-gradient(90deg, #1e62d0 5%, #3d94f6 100%);
+    background: linear-gradient(180deg, #3d94f6 5%, #1e62d0 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3d94f6",endColorstr="#1e62d0");
+}
+
+.loginbutton:hover {
+    background: -webkit-linear-gradient(90deg, #3d94f6 5%, #1e62d0 100%);
+    background: -moz-linear-gradient(90deg, #3d94f6 5%, #1e62d0 100%);
+    background: -ms-linear-gradient(90deg, #3d94f6 5%, #1e62d0 100%);
+    background: linear-gradient(180deg, #1e62d0 5%, #3d94f6 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1e62d0",endColorstr="#3d94f6");
+}
+
+.loginbutton:active {
+    position:relative;
+    top: 1px;
+}

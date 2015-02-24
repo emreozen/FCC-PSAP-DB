@@ -1,0 +1,37 @@
+{%extends "db.html"%}
+
+{%block body%}
+{%include "header.html"%}
+
+<link rel="stylesheet" type="text/css" href="static/css/custom.css">
+
+{% if added != 0 %}
+<p align="center"><b>{{added}} had been added to the database!</b></p>
+{% endif %}
+
+<p align="center"><b>Please enter User Information</b></p>
+<p></p>
+
+<div align="center">
+ 
+<form action="addUser" method="post" align="center" >
+<div>&nbsp;<input type="textarea" style="width:300px" id="email" name="email" placeholder='e-mail' class="textarea" />
+</div>
+<p></p>
+<div>&nbsp;<input type="password" id="password" style="width:300px" name="password" placeholder='password' class="textarea" />
+</div><p></p>
+
+<div>&nbsp;<input type="textarea" style="width:300px" id="read_access" name="read_access" placeholder='read access' class="textarea" />
+</div>
+<p></p>
+<div>&nbsp;<input type="textarea" style="width:300px" id="write_access" name="write_access" placeholder='write access' class="textarea" />
+</div>
+<p></p>
+            
+<button class="loginbutton" type="post" id="addUser" >Add User!</button>
+   
+
+</form>
+</div>
+
+{%endblock%}

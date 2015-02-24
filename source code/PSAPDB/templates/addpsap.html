@@ -1,0 +1,52 @@
+{%extends "db.html"%}
+
+{%block body%}
+{%include "header.html"%}
+
+<link rel="stylesheet" type="text/css" href="static/css/custom.css">
+
+{% if added != 0 %}
+<p align="center"><b>New Psap ID#{{added}} had been added to the database!</b></p>
+{% endif %}
+
+<p align="center"><b>Please enter User Information</b></p>
+<p></p>
+
+<div align="center">
+ 
+<form action="addpsap" method="post" align="center" >
+<div>&nbsp;<input type="textarea" style="width:300px" id="psapid" name="psapid" placeholder='PSAP ID' class="textarea" />
+</div>
+<p></p>
+<div>&nbsp;<input type="textarea" id="psapname" style="width:300px" name="psapname" placeholder='PSAP Name' class="textarea" />
+</div><p></p>
+
+<div>&nbsp;<input type="textarea" style="width:300px" id="state" name="state" placeholder='State' class="textarea" />
+</div>
+<p></p>
+
+<div>&nbsp;<input type="textarea" style="width:300px" id="county" name="county" placeholder='County' class="textarea" />
+</div><p></p>
+
+<div>&nbsp;<input type="textarea" style="width:300px" id="city" name="city" placeholder='City' class="textarea" />
+</div><p></p>
+
+<div>&nbsp;<input type="textarea" style="width:300px" id="toc" name="toc" placeholder='Type of Change' class="textarea" />
+</div><p></p>
+
+<div>&nbsp;<input type="textarea" style="width:300px" id="comments" name="comments" placeholder='Comments' class="textarea" />
+</div><p></p>
+
+<div>&nbsp;<input type="textarea" style="width:300px" id="text2911" name="text2911" placeholder='Text to 911' class="textarea" />
+</div><p></p>
+
+<div>&nbsp;<input type="textarea" style="width:300px" id="psapcontact" name="psapcontact" placeholder='PSAP Contact' class="textarea" />
+</div><p></p>
+            
+<button class="loginbutton" type="post" id="addPsap" >Add Psap!</button>
+   
+
+</form>
+</div>
+
+{%endblock%}

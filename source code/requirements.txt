@@ -1,0 +1,11 @@
+Flask==0.10.1
+Flask-MongoKit==0.6
+Jinja2==2.7.3
+MarkupSafe==0.23
+Werkzeug==0.9.6
+itsdangerous==0.24
+mongokit==0.9.1.1
+pygeocodio==0.4.0
+pymongo==2.7.2
+requests==2.5.0
+wsgiref==0.1.2

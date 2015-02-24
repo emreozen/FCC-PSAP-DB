@@ -1,0 +1,14 @@
+.search-form { margin:0px 60px 10px 40px; width:590px; overflow:hidden; }
+#search-page-border { border:1px solid #dbdbdb; border-radius:4px; padding:7px; float:left; }
+.search-terms { font-size:16px; border:none; }
+#search-which { margin:0 10px; padding-left:8px; border-left:1px solid #dbdbdb; }
+
+#search-submit { padding:10px 20px; margin-left:30px; font-size:16px; float:left; color:#ffffff; background:#3366FF; border:none; border-radius: 3px; }
+.accessibly-hidden {right: -199em;position: absolute;}
+
+#search-which, select option { 
+   font-size:16px;
+   -webkit-appearance: none;
+
+   } 
+

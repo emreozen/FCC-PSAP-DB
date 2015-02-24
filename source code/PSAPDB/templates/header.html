@@ -1,0 +1,28 @@
+
+<link rel="stylesheet" type="text/css" href="static/css/custom.css">
+
+
+
+<table id="header" align="center">
+  <tr align="center">
+    <td width="10%"><img src="/static/images/fccdiv11.png" style="width:48px;height:20px"></td>
+    <td width="19%"><a href='addpsap'>Add PSAP</a></td>
+    <td width="21%"><a href='list?page=1'>List PSAP</a></td>
+    <td width="27%"><a href='modify?page=1'>Modify PSAP</a></td>
+    <td width="23%"><a href='delete?page=1'>Delete PSAP</a></td>
+
+  </tr>
+</table>
+<table id="header" align="center">
+  <tr>
+    <td width="10%"><img src="/static/images/fccdiv12.png" style="width:48px;height:20px"></td>
+    <td width="19%"><a href='main'>Main Menu</a></td>
+    <td width="21%"><a href='search'>Search PSAP</a></td>
+    <td width="27%"><a href='subscribe?page=1'>Manage Subscriptions</a></td>
+    <td width="23%"> <a href="logout">Log-out</a></td>
+  </tr>
+</table>
+
+{% if adminUser == True %}
+{% include "adminHeader.html" %}
+{%endif%}

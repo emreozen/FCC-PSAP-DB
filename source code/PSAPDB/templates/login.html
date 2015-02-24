@@ -1,0 +1,34 @@
+{%extends "db.html"%}
+{%block body%}
+
+<link rel="stylesheet" type="text/css" href="static/css/custom.css">
+
+
+<p align="center"><b>Please enter your credentials</b></p>
+<p></p>
+
+
+<p align="center"> {{message}}</p>
+<div align="center">
+ 
+<form action="{{target}}" method="post" align="center" >
+    <div>
+&nbsp;	
+<input type="textarea" style="width:300px" id="email" name="email" placeholder='e-mail' class="textarea" />
+</div>
+<p></p>
+<div>&nbsp;
+<input type="password" id="password" style="width:300px" name="password" placeholder='password' class="textarea" />
+</div><p></p>
+
+
+						
+<button class="loginbutton" type="post" id="loginNow" >Login!</button>
+   
+
+</form>
+</div>
+
+
+</blockquote>	
+{%endblock%}

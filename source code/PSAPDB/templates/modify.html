@@ -1,0 +1,81 @@
+{%extends "db.html"%}
+
+{%block body%}
+{%include "header.html"%}
+
+<link rel="stylesheet" type="text/css" href="static/css/custom.css">
+
+{%if cItem != 0%}
+<p align="center">PSAP ID: {{psapidNum}} "{{cItem}}" has been changed from "{{v1}}" to "{{v2}}"
+</p>
+{%endif%}
+
+
+<p align="center"><b>Welcome to Modify  {{email}}</b></p>
+
+{% if pgSource.count > 0%}
+
+<div>
+<a class="alignleft"><b>{{ pgSource.start_index }} to {{ pgSource.end_index }}  out of {{ pgSource.count }}</b></a>
+
+{% if (pgSource.has_next == True) %}
+<a class="alignright" href=modify?page={{pgSource.next_page }} >Next Page ({{ pgSource.next_page }})</a>
+{% endif %}
+{% if (pgSource.has_previous == True) and (pgSource.has_next == True) %}
+ <a class="alignright"> <></a>
+{%endif%}
+{% if (pgSource.has_previous == True) %}
+<a class="alignright" href=modify?page={{pgSource.previous_page }} >Prev Page ({{ pgSource.previous_page }}) </a>
+{% endif %}
+</div>
+<div style="clear: both;"></div>
+
+
+<p align="center"> <h4> PSAP List </h4>
+<table id="tableData">
+  <tr>
+    <td width="5%">PSAP ID</td>
+    <td width="13%">PSAP Name</td>
+    <td width="5%">State</td>
+    <td width="13%">County</td>
+    <td width="13%">City</td>
+    <td width="3%">Type of Change</td>
+    <td width="40%">Comments</td>
+    <td width="10%">text-to-911</td>
+    <td width="10%">PSAP Contact</td>
+  </tr>
+  {% for unit in dataList %}
+  <tr>
+    <td>{{unit['PSAP ID']}}</td>
+    <td onclick="popMod('PSAP Name?','{{unit['PSAP Name']}}', 'pName','{{unit['PSAP ID']}}','{{pgSource.current_page}}')">{{unit['PSAP Name']}}</td>
+    <td onclick="popMod('State?','{{unit['State']}}', 'state','{{unit['PSAP ID']}}','{{pgSource.current_page}}')">{{unit['State']}}</td>
+    <td onclick="popMod('County?','{{unit['County']}}', 'county','{{unit['PSAP ID']}}','{{pgSource.current_page}}')">{{unit['County']}}</td>
+    <td onclick="popMod('City?','{{unit['City']}}', 'city','{{unit['PSAP ID']}}','{{pgSource.current_page}}')">{{unit['City']}}</td>
+    <td onclick="popMod('Type of Change?','{{unit['Type of Change']}}', 'toc','{{unit['PSAP ID']}}','{{pgSource.current_page}}')">{{unit['Type of Change']}}</td>
+    <td onclick="popMod('Comments?','{{unit['Comments']}}', 'comments','{{unit['PSAP ID']}}','{{pgSource.current_page}}')">{{unit['Comments']}}</td>
+    <td onclick="popMod('Text to 911?','{{unit['Text to 911']}}', 'text2911','{{unit['PSAP ID']}}','{{pgSource.current_page}}')">{{unit['Text to 911']}}</td>
+    <td onclick="popMod('PSAP Contact?','{{unit['PSAP Contact']}}', 'psapcontact','{{unit['PSAP ID']}}','{{pgSource.current_page}}')">{{unit['PSAP Contact']}}</td>
+    
+  </tr>
+  {% endfor %}
+</table>
+</p>
+
+{% endif %}
+ 
+<script type="text/javascript">
+
+function popMod(ques, data, property, id, page)
+{
+  var result = window.prompt(ques, data);
+
+  if ((result != null) & (result != data) & (result != ""))
+  {
+    console.log(result);
+    window.location.href = 'modify?page='+page+'&psapid='+id+'&'+property+'='+result;
+  }
+  
+}
+</script> 
+
+{%endblock%}

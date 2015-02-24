@@ -1,0 +1,11 @@
+mongoimport -h ds053130.mongolab.com --port 53130 -u heroku_app31976857 -p 9joh54prcr94jg33hhpe5r7j0a -d heroku_app31976857 -c psapTable --type csv --file importFinal2 --headerline
+
+
+		self.MONGO_URL = URL
+		app.config['MONGODB_DATABASE'] = 'heroku_app31976857'
+		app.config['MONGODB_HOST'] = 'ds053130.mongolab.com:53130' 
+		app.config['MONGODB_PORT'] = 53130
+		app.config['MONGODB_USERNAME'] = 'heroku_app31976857'
+		app.config['MONGODB_PASSWORD'] = '9joh54prcr94jg33hhpe5r7j0a'
+		print 'everything set'
+

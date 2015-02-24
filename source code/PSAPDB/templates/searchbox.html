@@ -1,0 +1,50 @@
+
+<link rel="stylesheet" type="text/css" href="static/css/search.css">
+<link rel="stylesheet" type="text/css" href="static/css/custom.css">
+
+<p align="center">
+
+<p class="search-form">
+	<span id="search-page-border">
+	<input type="text" class="search-terms" id="search-v" placeholder="search..." />
+
+	<select  id="search-which" class="styled-select" style="width: auto" align="center">
+		<option value="psapid">PSAP ID</option>
+		<option value="oppsapname">PSAP Name</option>
+		<option value="state">State</option>
+		<option value="opcounty">County</option>
+		<option value="opcity">City</option>
+		<option value="optoc">Type of Change</option>
+		<option value="opcomments">Comments</option>
+		<option value="text2911">Text to 911</option>
+		<option value="psapcontact">PSAP Contact</option>
+		
+	</select> 
+	</span>
+
+	<input type="submit" id="search-submit" value="Search" onclick="dropDown()" />
+</form>
+</p>
+
+
+
+<script type="text/javascript">
+
+function dropDown()
+{
+  var result = document.getElementById("search-which");
+  var value = result.options[result.selectedIndex].value; 
+	var textVal = result.options[result.selectedIndex].text; 
+	console.log(value);
+	console.log(textVal);
+	var searchVal = document.getElementById('search-v').value;
+	console.log(searchVal);
+
+  if ((searchVal != null) & (searchVal != ""))
+  {
+  	console.log('search?'+value+'='+searchVal);
+  	window.location.href = 'search?'+value+'='+searchVal;
+	}
+  
+}
+</script> 

@@ -1,0 +1,56 @@
+{%extends "db.html"%}
+
+{%block body%}
+{%include "header.html"%}
+
+<link rel="stylesheet" type="text/css" href="static/css/custom.css">
+
+<p align="center"><b>PSAP List for {{email}}</b></p>
+
+{% if pgSource.count > 0%}
+<div>
+<a class="alignleft"><b>{{ pgSource.start_index }} to {{ pgSource.end_index }}  out of {{ pgSource.count }}</b></a>
+
+{% if (pgSource.has_next == True) %}
+<a class="alignright" href=list?page={{pgSource.next_page }} >Next Page ({{ pgSource.next_page }})</a>
+{% endif %}
+{% if (pgSource.has_previous == True) and (pgSource.has_next == True) %}
+ <a class="alignright"> <></a>
+{%endif%}
+{% if (pgSource.has_previous == True) %}
+<a class="alignright" href=list?page={{pgSource.previous_page }} >Prev Page ({{ pgSource.previous_page }}) </a>
+{% endif %}
+</div>
+<div style="clear: both;"></div>
+
+
+<p align="center"> <h4> PSAP List </h4>
+<table id="tableData">
+  <tr>
+    <td width="5%">PSAP ID</td>
+    <td width="13%">PSAP Name</td>
+    <td width="5%">State</td>
+    <td width="13%">County</td>
+    <td width="13%">City</td>
+    <td width="3%">Type of Change</td>
+    <td width="40%">Comments</td>
+    <td width="10%">text-to-911</td>
+    <td width="10%">PSAP Contact</td>
+  </tr>
+  {% for unit in dataList %}
+  <tr>
+    <td>{{unit['PSAP ID']}}</td>
+    <td>{{unit['PSAP Name']}}</td>
+    <td>{{unit['State']}}</td>
+    <td>{{unit['County']}}</td>
+    <td>{{unit['City']}}</td>
+    <td>{{unit['Type of Change']}}</td>
+    <td>{{unit['Comments']}}</td>
+    <td>{{unit['Text to 911']}}</td>
+    <td>{{unit['PSAP Contact']}}</td>
+  </tr>
+  {% endfor %}
+</table>
+</p>
+{% endif %}
+{%endblock%}

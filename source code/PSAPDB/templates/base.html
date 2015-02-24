@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+
+<meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>9-1-1 Master PSAP Registry</title> 
+
+  <!-- If you are using CSS version, only link these 2 files, you may add app.css to use for your overrides if you like. --> 
+  <link rel="stylesheet" href="/static/css/normalize.css"> 
+  <link rel="stylesheet" href="/static/css/foundation.css"> 
+
+  <!-- If you are using the gem version, you need this only --> 
+ <!--  <link rel="stylesheet" href="/static/css/app.css">  -->
+  <script src="/static/js/vendor/modernizr.js"></script> 
+
+  <link rel="stylesheet" href="/static/css/crm.css">
+
+
+  <nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><img src="/static/images/fccmain.jpg"><a align=centered> Welcome to the 9-1-1 Master PSAP Registry</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+
+
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+     
+      <li class="has-dropdown">
+        <a href="#">Menu</a>
+        <ul class="dropdown">
+          <li class="active"><a href="/customer">Customers</a></li>
+          <li class="active"><a href="/agent">Agents</a></li>
+          <li class="active"><a href="/contact">Contacts</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    
+  </section>
+</nav>
+</head>
+
+<body>
+ <div class="page-wrap">
+<blockquote>
+
+{% block content %}{% endblock %}
+</blockquote>
+
+  <script src="/static/js/vendor/jquery.js"></script> 
+  <script src="/static/js/foundation.min.js"></script> 
+
+  <script> 
+    $(document).foundation(); 
+  </script> 
+
+      
+</div>
+<div>
+<footer class="site-footer">
+<img src="/static/images/fccmain.jpg">
+  Copyright
+</footer>
+ </div>
+  </body>
+</html>

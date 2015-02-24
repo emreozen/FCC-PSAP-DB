@@ -1,0 +1,59 @@
+{%extends "db.html"%}
+
+{%block body%}
+{%include "header.html"%}
+
+<link rel="stylesheet" type="text/css" href="static/css/custom.css">
+
+{%if deleted != 0%}
+<p align="center">Following User has been deleted
+<table id="deletedTable">
+  <tr>
+    <td>E-mail</td>
+  </tr>
+  <tr>
+    <td>{{deleted['email']}}</td>
+  </tr>
+</table>
+</p>
+{%endif%}
+
+<p align="center"><b>List for  {{email}}</b></p>
+
+{% if pgSource.count > 0%}
+
+<div>
+<a class="alignleft"><b>{{ pgSource.start_index }} to {{ pgSource.end_index }}  out of {{ pgSource.count }}</b></a>
+
+{% if (pgSource.has_next == True) %}
+<a class="alignright" href=deleteUser?page={{pgSource.next_page }} >Next Page ({{ pgSource.next_page }})</a>
+{% endif %}
+{% if (pgSource.has_previous == True) and (pgSource.has_next == True) %}
+ <a class="alignright"> <></a>
+{%endif%}
+{% if (pgSource.has_previous == True) %}
+<a class="alignright" href=deleteUser?page={{pgSource.previous_page }} >Prev Page ({{ pgSource.previous_page }}) </a>
+{% endif %}
+</div>
+<div style="clear: both;"></div>
+
+
+<p align="center"> <h4> PSAP List </h4>
+<table id="tableData">
+  <tr>
+    <td>E-mail</td>
+    <td>Delete</td>
+  </tr>
+  {% for unit in dataList %}
+  <tr>
+    <td>{{unit['email']}}</td>
+    <td><a href="deleteUser?page={{pgSource.current_page}}&email={{unit['email']}}"> X </a></td>
+  </tr>
+  {% endfor %}
+</table>
+</p>
+
+{% endif %}
+
+
+{%endblock%}
